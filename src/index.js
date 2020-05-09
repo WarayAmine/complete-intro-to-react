@@ -56,6 +56,7 @@ class Game extends React.Component {
             }],
             stepNumber: 0,
             xIsNext: true,
+            showSelectedSquare: false,
         }
     }
 
@@ -74,6 +75,7 @@ class Game extends React.Component {
             }]),
             stepNumber: history.length,
             xIsNext: !this.state.xIsNext,
+            showSelectedSquare: false,
         });
     }
 
@@ -81,6 +83,7 @@ class Game extends React.Component {
         this.setState({
             stepNumber: step,
             xIsNext: (step % 2) === 0,
+            showSelectedSquare: true,
         })
     }
 
@@ -96,7 +99,10 @@ class Game extends React.Component {
                 'Go to move (' + col + ', ' + row + ')' :
                 'Go to game start';
             return (
-                <li key={move}>
+                <li
+                    key={move}
+                    className={this.state.showSelectedSquare && current.selectedSquare === step.selectedSquare ? 'bold' : ''}
+                >
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             )
