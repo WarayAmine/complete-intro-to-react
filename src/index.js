@@ -59,6 +59,7 @@ class Game extends React.Component {
             stepNumber: 0,
             xIsNext: true,
             showSelectedSquare: false,
+            descOrder: true,
         }
     }
 
@@ -89,15 +90,24 @@ class Game extends React.Component {
         })
     }
 
+    toggleOrder() {
+        this.setState({
+            descOrder: !this.state.descOrder,
+        })
+    }
+
     render() {
-        const history = this.state.history;
+        const history = this.state.history.slice();
+        if (!this.state.descOrder) {
+            history.reverse();
+        }
         const current = history[this.state.stepNumber];
         const winner = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
             const row = Math.floor(step.selectedSquare / 3) + 1;
             const col = step.selectedSquare % 3 + 1;
-            const desc = move ?
+            const desc = !isTheFirstStep(step.squares) ?
                 'Go to move (' + col + ', ' + row + ')' :
                 'Go to game start';
             return (
@@ -127,6 +137,9 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
+                    <div>
+                        <button onClick={() => this.toggleOrder()}>{this.state.descOrder ? 'Order by newest' : 'Order by oldest'}</button>
+                    </div>
                     <ol>{moves}</ol>
                 </div>
             </div>
@@ -152,6 +165,10 @@ function calculateWinner(squares) {
         }
     }
     return null;
+}
+
+function isTheFirstStep(squares) {
+    return !(squares.includes('X') || squares.includes('O'));
 }
 
 // ========================================

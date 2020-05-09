@@ -9,3 +9,4 @@ I tagged commits so make it easier the to find answers.
 - Display the location for each move in the format (col, row) in the move history list : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-1
 - Bold the currently selected item in the move list : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-2
 - Rewrite Board to use two loops to make the squares instead of hardcoding them : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-3
+- Add a toggle button that lets you sort the moves in either ascending or descending order : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-4
