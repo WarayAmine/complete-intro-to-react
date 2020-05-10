@@ -10,3 +10,4 @@ I tagged commits so make it easier the to find answers.
 - Bold the currently selected item in the move list : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-2
 - Rewrite Board to use two loops to make the squares instead of hardcoding them : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-3
 - Add a toggle button that lets you sort the moves in either ascending or descending order : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-4
+- When someone wins, highlight the three squares that caused the win AND When no one wins, display a message about the result being a draw : https://github.com/WarayAmine/complete-intro-to-react/tree/Task-5-6
